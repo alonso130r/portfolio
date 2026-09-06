@@ -1,1 +1,11 @@
 /portfolio-design.md
+/docs/superpowers/plans/2026-09-06-vercel-portfolio.md
+/.next/
+/out/
+/coverage/
+/node_modules/
+/.vercel/
+/.env*
+!.env.example
+npm-debug.log*
+*.tsbuildinfo
