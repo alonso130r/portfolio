@@ -7,8 +7,7 @@
   --display: Georgia, "Times New Roman", serif;
   --body: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --content: 760px;
-  --label: 112px;
+  --content: 980px;
 }
 
 * {
@@ -29,8 +28,8 @@ body {
   background-size: 13px 13px, 17px 17px;
   color: var(--ink);
   font-family: var(--body);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.55;
   text-rendering: optimizeLegibility;
 }
 
@@ -70,22 +69,35 @@ h4 {
 
 .site-shell {
   margin: 0 auto;
-  max-width: calc(var(--content) + var(--label) + 120px);
-  padding: 7rem 3rem 3rem;
+  max-width: calc(var(--content) + 120px);
+  padding: 4.5rem 3rem 2.5rem;
 }
 
 .intro {
-  margin-left: calc(var(--label) + 2rem);
   max-width: var(--content);
-  padding-bottom: 7.5rem;
+  padding-bottom: 5rem;
 }
 
-.kicker,
+.intro-grid {
+  display: grid;
+  gap: clamp(3rem, 7vw, 7rem);
+  grid-template-columns: minmax(250px, 0.75fr) minmax(380px, 1.25fr);
+}
+
+.intro-identity,
+.intro-positioning {
+  min-width: 0;
+}
+
+.intro-positioning {
+  align-self: end;
+}
+
 .project-eyebrow,
 .section-label {
   color: var(--forest);
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
@@ -93,89 +105,103 @@ h4 {
 .intro h1,
 .case-header h1,
 .not-found h1 {
-  font-size: clamp(3.5rem, 9vw, 7.25rem);
+  font-size: clamp(2.9rem, 6vw, 5rem);
   letter-spacing: -0.055em;
-  margin: 0.2rem 0 0.5rem;
+  margin: 0 0 1.4rem;
 }
 
 .affiliation {
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 0.85rem;
-  margin-bottom: 2.5rem;
+  font-size: 0.78rem;
+  margin: 1.8rem 0 0;
 }
 
 .lede,
 .case-lede {
   font-family: var(--display);
-  font-size: clamp(1.45rem, 3vw, 2.15rem);
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
   letter-spacing: -0.018em;
-  line-height: 1.45;
+  line-height: 1.35;
   max-width: 720px;
 }
 
 .primary-links,
+.section-links,
 .technology-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem 1.35rem;
   list-style: none;
-  margin: 2.3rem 0 0;
+  margin: 0;
   padding: 0;
 }
 
+.header-links {
+  display: grid;
+  gap: 1rem;
+}
+
+.section-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
 .primary-links a,
+.section-links a,
 .project-links a,
 .case-footer a,
 .back-link {
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 650;
 }
 
-.page-section {
+.home-section {
   border-top: 1px solid var(--line);
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: var(--label) minmax(0, var(--content));
-  padding: 6rem 0 7.5rem;
+  padding: 4rem 0 5rem;
+}
+
+.background-section {
+  padding-top: 3rem;
+}
+
+.home-section-heading {
+  align-items: end;
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
 }
 
 .section-label {
-  margin-top: 0.55rem;
+  margin-bottom: 0.65rem;
 }
 
 .section-title {
-  font-size: clamp(2.35rem, 5vw, 4.25rem);
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
   letter-spacing: -0.04em;
-  margin-bottom: 1.25rem;
-}
-
-.section-intro {
-  color: var(--muted);
-  max-width: 630px;
+  margin-bottom: 0;
 }
 
 .project-list {
-  margin-top: 4rem;
+  margin-top: 2.5rem;
 }
 
 .project-entry {
   border-top: 1px solid var(--line);
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 42px minmax(0, 1fr);
-  padding: 3rem 0 3.5rem;
+  padding: 2rem 0 2.25rem;
+}
+
+.project-heading {
+  max-width: 760px;
 }
 
 .project-entry:last-child {
   border-bottom: 1px solid var(--line);
-}
-
-.project-number {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  padding-top: 0.45rem;
 }
 
 .project-eyebrow {
@@ -183,9 +209,9 @@ h4 {
 }
 
 .project-entry h3 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.55rem, 3vw, 2.4rem);
   letter-spacing: -0.035em;
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.7rem;
 }
 
 .project-entry h3 a {
@@ -200,18 +226,16 @@ h4 {
 }
 
 .project-summary {
+  font-family: var(--display);
   font-size: 1.08rem;
-  max-width: 670px;
-}
-
-.project-contribution {
-  color: var(--muted);
-  max-width: 670px;
+  line-height: 1.45;
+  margin-bottom: 0;
+  max-width: 700px;
 }
 
 .technology-list {
   gap: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .technology-list li {
@@ -219,8 +243,8 @@ h4 {
   border-radius: 999px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 0.7rem;
-  padding: 0.24rem 0.65rem;
+  font-size: 0.64rem;
+  padding: 0.2rem 0.55rem;
 }
 
 .project-links,
@@ -228,12 +252,14 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  margin-top: 1.8rem;
+  margin-top: 1.2rem;
 }
 
 .background-grid {
   display: grid;
-  gap: 5rem;
+  gap: clamp(3rem, 7vw, 6rem);
+  grid-template-columns: 1.2fr 0.8fr;
+  margin-top: 2.5rem;
 }
 
 .subsection-title {
@@ -251,7 +277,7 @@ h4 {
 
 .background-entry {
   border-bottom: 1px solid var(--line);
-  padding: 1.75rem 0 2rem;
+  padding: 1.35rem 0 1.55rem;
 }
 
 .entry-heading {
@@ -262,7 +288,7 @@ h4 {
 }
 
 .entry-heading h4 {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   margin-bottom: 0.35rem;
 }
 
@@ -284,7 +310,6 @@ h4 {
   font-size: 0.8rem;
   gap: 2rem;
   justify-content: space-between;
-  margin-left: calc(var(--label) + 2rem);
   padding: 2.25rem 0 0;
 }
 
@@ -356,7 +381,7 @@ h4 {
   }
 
   .site-shell {
-    padding: 4rem 1.25rem 2rem;
+    padding: 3rem 1.25rem 2rem;
   }
 
   .intro,
@@ -365,29 +390,47 @@ h4 {
     margin-left: 0;
   }
 
+  .intro-grid,
+  .background-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .intro {
-    padding-bottom: 5rem;
+    gap: 3.25rem;
+    padding-bottom: 3.5rem;
   }
 
   .intro h1,
   .case-header h1 {
-    font-size: clamp(3.2rem, 17vw, 5rem);
+    font-size: clamp(2.75rem, 14vw, 4rem);
   }
 
-  .page-section,
   .case-grid > section {
     display: block;
     padding: 4rem 0 5rem;
   }
 
-  .page-section > .section-label,
   .case-grid > section > .section-label {
     margin-bottom: 1.25rem;
   }
 
+  .home-section {
+    padding: 3rem 0 3.75rem;
+  }
+
+  .background-section {
+    padding-top: 2.25rem;
+  }
+
+  .home-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
   .project-entry {
-    grid-template-columns: 30px minmax(0, 1fr);
-    padding: 2.5rem 0 3rem;
+    padding: 1.75rem 0 2rem;
   }
 
   .entry-heading,

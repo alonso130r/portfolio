@@ -5,8 +5,11 @@ export const portfolio: Portfolio = {
     name: "Vijay Goyal",
     affiliation: "Computer Science + Combinatorics & Optimization at Waterloo",
     introduction:
-      "I study and build systems that make machine learning more efficient, from knowledge distillation experiments to inference scheduling and neural networks implemented from first principles.",
+      "I work on efficient machine learning, with a focus on knowledge distillation, inference systems, and optimization.",
     links: [
+      { label: "Publications", href: "#publications" },
+      { label: "Projects", href: "#work" },
+      { label: "Experience", href: "#background" },
       { label: "GitHub", href: "https://github.com/alonso130r" },
       {
         label: "Résumé",
@@ -21,6 +24,7 @@ export const portfolio: Portfolio = {
   },
   projects: [
     {
+      kind: "publication",
       slug: "knowledge-distillation",
       title: "Knowledge Distillation",
       eyebrow: "Research methodology",
@@ -49,6 +53,7 @@ export const portfolio: Portfolio = {
       verified: true,
     },
     {
+      kind: "project",
       slug: "quickserve",
       title: "QuickServe",
       eyebrow: "Inference systems",
@@ -74,6 +79,86 @@ export const portfolio: Portfolio = {
       verified: true,
     },
     {
+      kind: "project",
+      slug: "racey-car",
+      title: "Racey-Car",
+      eyebrow: "Reinforcement learning",
+      summary:
+        "A sim-to-real reinforcement-learning pipeline for autonomous driving on a physical racecar, backed by a configurable PyBullet environment.",
+      problem:
+        "Policies trained in simulation must transfer to a physical car despite differences in sensing, dynamics, and track conditions.",
+      contribution:
+        "Worked with the WAT.ai Design Team to build the training pipeline, evaluate reinforcement-learning policies, and connect simulated control decisions to Arduino-based hardware.",
+      approach: [
+        "Built a configurable PyBullet race environment with generated tracks, camera controls, and reward logic.",
+        "Used segmentation masks for track extraction rather than relying on color filtering.",
+        "Developed training paths for PPO, SAC, and a Dreamer-style world-model agent, with focused runtime and reward tests.",
+      ],
+      evidence: [
+        "The documented development branch contains the simulator, track generator, environment, control stack, policy trainers, world-model components, and focused tests.",
+        "The public résumé reports evaluation of more than five RL algorithms and more than twenty reward functions, with a 25 percent improvement in physical-track lap times.",
+      ],
+      limitations:
+        "The repository does not publish the full physical-track benchmark protocol or raw lap-time results. Reported outcomes are attributed to the résumé, and the work is presented as a WAT.ai team project.",
+      technologies: ["Python", "PyBullet", "PyTorch", "Stable-Baselines3", "Arduino"],
+      repositoryUrl:
+        "https://github.com/alonso130r/Racey-Car/tree/DreamerV3%2BStableBaselines-policy",
+      verified: true,
+    },
+    {
+      kind: "project",
+      slug: "sophia-g",
+      title: "SOPHIA-G",
+      eyebrow: "Optimization research",
+      summary:
+        "A PyTorch optimizer that blends Sophia-style curvature clipping with AdamW-style moment tracking and weight decay.",
+      problem:
+        "Second-order information can improve an optimizer's update decisions, but full Hessian methods are expensive. This prototype explores a practical approximation within a familiar PyTorch optimizer interface.",
+      contribution:
+        "Designed and implemented a hybrid optimizer while working at Algoverse, combining Sophia-style clipping with AdamW-inspired normalization and configurable curvature estimates.",
+      approach: [
+        "Tracks exponential moving averages for gradients, squared gradients, and an approximate Hessian.",
+        "Supports diagonal curvature estimates and blockwise estimates for two-dimensional parameter tensors.",
+        "Includes an optional adaptive clipping threshold based on the observed rate of gradient sign changes.",
+      ],
+      evidence: [
+        "The public implementation exposes the optimizer as a PyTorch Optimizer subclass with parameter validation and documented update modes.",
+        "The repository contains the full optimizer in one inspectable Python module.",
+      ],
+      limitations:
+        "The repository does not publish benchmark results or a reproducible evaluation suite, so no convergence or performance improvement is claimed.",
+      technologies: ["Python", "PyTorch", "Optimization", "Hessian approximation"],
+      repositoryUrl: "https://github.com/alonso130r/SOPHIA-G",
+      verified: true,
+    },
+    {
+      kind: "project",
+      slug: "cpp-cnn-autodiff",
+      title: "C++ CNN + Autodiff Engine",
+      eyebrow: "Learning systems",
+      summary:
+        "A convolutional neural network and reverse-mode autodifferentiation engine implemented in C++ without machine-learning libraries.",
+      problem:
+        "Training a CNN requires tensor operations, gradient propagation, parameter updates, and layer composition. This project implements that stack directly to expose how the pieces interact.",
+      contribution:
+        "Implemented the CNN, computation graph, convolution and pooling operations, AMSGrad updates, and Python bindings for training and evaluation.",
+      approach: [
+        "Built modular convolution, max-pooling, and fully connected layers around a custom tensor and computation graph.",
+        "Implemented reverse-mode differentiation and AMSGrad parameter updates in C++.",
+        "Exposed the compiled model to Python through pybind11 for experiment orchestration.",
+      ],
+      evidence: [
+        "The repository includes the layer templates, differentiation operations, optimizer, CMake build, and Python bindings.",
+        "The public résumé reports a five-times multithreaded speedup over the single-threaded implementation and 90 percent CIFAR-10 classification accuracy.",
+      ],
+      limitations:
+        "The repository README is brief and does not include the benchmark procedure or training configuration, so the reported results should be interpreted as résumé claims rather than independently reproducible measurements.",
+      technologies: ["C++", "Autodiff", "CNN", "AMSGrad", "pybind11"],
+      repositoryUrl: "https://github.com/alonso130r/12-finalproj-2",
+      verified: true,
+    },
+    {
+      kind: "project",
       slug: "multinn-cpu",
       title: "multiNN-cpu",
       eyebrow: "Machine-learning fundamentals",

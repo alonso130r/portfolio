@@ -4,6 +4,7 @@ export type Link = {
 };
 
 export type Project = {
+  kind: "project" | "publication";
   slug: string;
   title: string;
   eyebrow: string;

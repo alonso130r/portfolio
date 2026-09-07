@@ -1,12 +1,26 @@
 import { describe, expect, it } from "vitest";
 import { portfolio } from "../src/content/portfolio";
-import { getProject, getPublishedProjects } from "../src/lib/projects";
+import {
+  getPublishedProjects,
+  getPublishedPublications,
+} from "../src/lib/projects";
 
 describe("portfolio content", () => {
-  it("publishes the selected work in the approved order", () => {
-    expect(getPublishedProjects().map((project) => project.slug)).toEqual([
+  it("describes the research focus in concrete terms", () => {
+    expect(portfolio.identity.introduction).toBe(
+      "I work on efficient machine learning, with a focus on knowledge distillation, inference systems, and optimization.",
+    );
+  });
+
+  it("separates the publication from the projects", () => {
+    expect(getPublishedPublications().map((project) => project.slug)).toEqual([
       "knowledge-distillation",
+    ]);
+    expect(getPublishedProjects().map((project) => project.slug)).toEqual([
       "quickserve",
+      "racey-car",
+      "sophia-g",
+      "cpp-cnn-autodiff",
       "multinn-cpu",
     ]);
   });
@@ -20,13 +34,8 @@ describe("portfolio content", () => {
     }
   });
 
-  it("finds a published case study and rejects an unknown slug", () => {
-    expect(getProject("quickserve")?.title).toBe("QuickServe");
-    expect(getProject("does-not-exist")).toBeUndefined();
-  });
-
   it("keeps unverified claims out of published projects", () => {
-    for (const project of getPublishedProjects()) {
+    for (const project of [...getPublishedPublications(), ...getPublishedProjects()]) {
       expect(project.verified).toBe(true);
       expect(project.summary).not.toMatch(/TBD|TODO|placeholder/i);
       expect(project.contribution).not.toMatch(/TBD|TODO|placeholder/i);

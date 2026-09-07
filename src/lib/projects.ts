@@ -1,16 +1,16 @@
 import type { MetadataRoute } from "next";
 import { portfolio } from "../content/portfolio";
 
-export function getPublishedProjects() {
+function getPublishedWork() {
   return portfolio.projects.filter((project) => project.verified);
 }
 
-export function getProject(slug: string) {
-  return getPublishedProjects().find((project) => project.slug === slug);
+export function getPublishedProjects() {
+  return getPublishedWork().filter((project) => project.kind === "project");
 }
 
-export function getProjectSlugs() {
-  return getPublishedProjects().map((project) => project.slug);
+export function getPublishedPublications() {
+  return getPublishedWork().filter((project) => project.kind === "publication");
 }
 
 export function getSitemapEntries(baseUrl: string): MetadataRoute.Sitemap {
@@ -18,10 +18,5 @@ export function getSitemapEntries(baseUrl: string): MetadataRoute.Sitemap {
 
   return [
     { url: normalizedBaseUrl, changeFrequency: "monthly", priority: 1 },
-    ...getProjectSlugs().map((slug) => ({
-      url: `${normalizedBaseUrl}/work/${slug}`,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
   ];
 }
