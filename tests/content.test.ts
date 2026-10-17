@@ -17,6 +17,7 @@ describe("portfolio content", () => {
       "knowledge-distillation",
     ]);
     expect(getPublishedProjects().map((project) => project.slug)).toEqual([
+      "fastdecisions",
       "quickserve",
       "racey-car",
       "sophia-g",

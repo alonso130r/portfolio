@@ -54,6 +54,37 @@ export const portfolio: Portfolio = {
     },
     {
       kind: "project",
+      slug: "fastdecisions",
+      title: "FastDecisions",
+      eyebrow: "GPU inference optimization",
+      summary:
+        "Profiling and optimizing a one-pass decision model on NVIDIA L4, using custom Triton kernels to reduce tensor-layout overhead and improve attention execution.",
+      problem:
+        "One-pass decision models score possible answers in a single forward pass. Low-concurrency inference requires optimizing that forward pass rather than a token-by-token decoding loop.",
+      contribution:
+        "Built a benchmark and profiling harness for Mapika's Decider model, implemented custom Triton kernels, and documented the experiments in a companion article.",
+      approach: [
+        "Profiled eager and compiled execution on NVIDIA L4 using a DecisionBench workload.",
+        "Implemented packed causal convolution to avoid repeated tensor-layout copies.",
+        "Evaluated native grouped-query attention with model-level timing and numerical diagnostics.",
+      ],
+      evidence: [
+        "The repository documents the benchmark harness, custom kernels, and experiment outcomes, with GPU runs through Modal.",
+      ],
+      limitations:
+        "Results apply to the recorded L4 workload. The combined kernel experiment exceeded some numerical tolerances, so quality preservation across representative requests remains unestablished.",
+      technologies: ["PyTorch", "Triton", "CUDA", "Modal"],
+      repositoryUrl: "https://github.com/alonso130r/FastDecisions",
+      supportingLinks: [
+        {
+          label: "Read the article",
+          href: "https://medium.com/@vijaygoyal0770/why-is-my-pytorch-model-still-slow-d7c97bf5761b",
+        },
+      ],
+      verified: true,
+    },
+    {
+      kind: "project",
       slug: "quickserve",
       title: "QuickServe",
       eyebrow: "Inference systems",
