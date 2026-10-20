@@ -18,7 +18,13 @@ export function ExperienceList({
                 <h4>{entry.role}</h4>
                 <span>{entry.period}</span>
               </div>
-              <p className="organization">{entry.organization}</p>
+              <p className="organization">
+                {entry.organizationUrl ? (
+                  <a href={entry.organizationUrl}>{entry.organization}</a>
+                ) : (
+                  entry.organization
+                )}
+              </p>
               <p>{entry.summary}</p>
             </article>
           ))}

@@ -216,6 +216,13 @@ export const portfolio: Portfolio = {
   ],
   experience: [
     {
+      organization: "UWHPC",
+      organizationUrl: "https://uwhpc.com",
+      role: "Founding Member",
+      period: "Present",
+      summary: "Working on ML compilers and inference optimization.",
+    },
+    {
       organization: "CIBC Global Asset Management",
       role: "ML Research Engineering Intern",
       period: "May 2026 – Aug. 2026",

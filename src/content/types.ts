@@ -22,6 +22,7 @@ export type Project = {
 
 export type Experience = {
   organization: string;
+  organizationUrl?: string;
   role: string;
   period: string;
   summary: string;
