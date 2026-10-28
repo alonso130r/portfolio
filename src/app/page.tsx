@@ -40,6 +40,7 @@ export default function HomePage() {
               <h3><a href="https://openai-workshop-bice.vercel.app/">Your AI Is Doing Extra Work</a></h3>
               <p className="project-summary">A visual introduction to how ML compilers reduce unnecessary work, covering GPU memory movement, kernel fusion, tiling, and practical evaluation with <code>torch.compile</code>.</p>
               <div className="talk-details">
+                <p>Currently a work in progress.</p>
                 <p>Given on October 30th, 2026 at the University of Waterloo.</p>
                 <p>Co-sponsored by the OpenAI student organization at Waterloo.</p>
               </div>
