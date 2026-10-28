@@ -42,7 +42,7 @@ export default function HomePage() {
               <div className="talk-details">
                 <p>Currently a work in progress.</p>
                 <p>Given on October 30th, 2026 at the University of Waterloo.</p>
-                <p>Co-sponsored by the OpenAI student organization at Waterloo.</p>
+                <p>Co-sponsored by the OpenAI Student Collective at Waterloo.</p>
               </div>
               <div className="project-links"><a href="https://openai-workshop-bice.vercel.app/">View the presentation</a></div>
             </div>
