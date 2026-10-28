@@ -255,6 +255,16 @@ h4 {
   margin-top: 1.2rem;
 }
 
+.talk-details {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+.talk-details p {
+  margin: 0;
+}
+
 .background-grid {
   display: grid;
   gap: clamp(3rem, 7vw, 6rem);

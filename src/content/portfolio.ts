@@ -9,6 +9,7 @@ export const portfolio: Portfolio = {
     links: [
       { label: "Publications", href: "#publications" },
       { label: "Projects", href: "#work" },
+      { label: "Talks", href: "#talks" },
       { label: "Experience", href: "#background" },
       { label: "GitHub", href: "https://github.com/alonso130r" },
       {
